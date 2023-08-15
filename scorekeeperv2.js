@@ -8,3 +8,13 @@ const p2= {
     button: document.querySelector("#p2button"),
     display: document.querySelector("#p2score")
 };
+let isGameOver=false;
+let winningScore=5;
+
+const updateScores(player,opponent){
+    if(!isGameOver){
+        player.score +=1;
+    }
+    if()
+    player.display.textContent=player.score
+}

@@ -24,3 +24,10 @@ const updateScores(player,opponent){
     }
     player.display.textContent=player.score;
 }
+p1.button.addEventListener('click', ()=>{updateScores(p1,p2)})
+p2.button.addEventListener('click', ()=>{updateScores(p2,p1)})
+
+const select= document.querySelector('select');
+const reset= document.querySelector('#reset');
+select.addEventListener('change', ()=>{
+    winningScore=parseInt(this.value)})

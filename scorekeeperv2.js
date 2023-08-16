@@ -15,6 +15,12 @@ const updateScores(player,opponent){
     if(!isGameOver){
         player.score +=1;
     }
-    if()
-    player.display.textContent=player.score
+    if(player.score===winningScore){
+        isGameOver=true;
+        player.button.disabled=true;
+        opponent.button.disabled=true;
+        player.display.classList.add("has-text-success");
+        opponent.display.classList.add("has-text-danger");
+    }
+    player.display.textContent=player.score;
 }

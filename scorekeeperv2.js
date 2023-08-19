@@ -11,7 +11,7 @@ const p2= {
 let isGameOver=false;
 let winningScore=5;
 
-const updateScores(player,opponent){
+const updateScores= (player,opponent)=>{
     if(!isGameOver){
         player.score +=1;
     }
@@ -27,7 +27,21 @@ const updateScores(player,opponent){
 p1.button.addEventListener('click', ()=>{updateScores(p1,p2)})
 p2.button.addEventListener('click', ()=>{updateScores(p2,p1)})
 
-const select= document.querySelector('select');
-const reset= document.querySelector('#reset');
-select.addEventListener('change', ()=>{
-    winningScore=parseInt(this.value)})
+const select= document.querySelector('#select');
+const resetBtn= document.querySelector('#reset');
+
+select.addEventListener('change',function(){
+    winningScore=parseInt(this.value);
+    reset();
+})
+
+resetBtn.addEventListener('click', reset);
+
+function reset(){
+    isGameOver=false;
+    for(let p of [p1,p2]){
+        p.score=0;
+        p.display.textContent=0;
+        p.display.classList.remove('has-text-success', 'has-text-danger');
+        p.button.disabled=false;
+    }}
